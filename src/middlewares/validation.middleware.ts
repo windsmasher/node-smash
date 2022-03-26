@@ -1,6 +1,7 @@
 import { plainToInstance } from 'class-transformer';
 import { validate } from 'class-validator';
 import { Request, Response, NextFunction } from 'express';
+import BadRequestException from '../exceptions/bad-request.exception';
 
 export default (dto: any) =>
   async (req: Request, res: Response, next: NextFunction) => {
@@ -10,7 +11,7 @@ export default (dto: any) =>
       forbidNonWhitelisted: true,
     });
     if (errors.length > 0) {
-      return res.status(400).send();
+      next(new BadRequestException(errors[0].property));
     }
     next();
   };
