@@ -1,7 +1,7 @@
 import { Matches, IsDefined } from 'class-validator';
 import { Expose } from 'class-transformer';
 
-export default class UserDto {
+export default class UserRegisterDto {
   @IsDefined()
   @Expose()
   @Matches(
