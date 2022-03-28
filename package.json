@@ -13,8 +13,8 @@
     "mongoose": "^6.2.8"
   },
   "scripts": {
-    "start": "npx tsc && node dist/index",
-    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\"",
+    "start": "npx tsc && node dist/src/index",
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/src/index.js\"",
     "build": "npx tsc",
     "test": "jest"
   },
