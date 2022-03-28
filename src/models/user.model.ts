@@ -1,9 +1,5 @@
 import mongoose from 'mongoose';
-
-interface User {
-  email: string;
-  password: string;
-}
+import { User } from '../interfaces/user.interface';
 
 export default mongoose.model(
   'User',
