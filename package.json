@@ -38,6 +38,7 @@
     "coverageDirectory": "./coverage",
     "testMatch": [
         "**/?(*.)+(spec).ts"
-    ]
+    ],
+    "clearMocks": true
   }
 }

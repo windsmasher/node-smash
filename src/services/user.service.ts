@@ -12,8 +12,11 @@ export const userRegisterMiddleware =
       if (await userRepository.isUserExists(req.body.email)) {
         return next(new HttpException(500, 'User exists.'));
       }
-      const salt = await bcrypt.genSalt(10);
-      const hashedPwd = await bcrypt.hash(req.body.password, salt);
+
+      const hashedPwd = await bcrypt.hash(
+        req.body.password,
+        await bcrypt.genSalt(10)
+      );
 
       const savedUser = await userRepository.createAndSaveUser({
         email: req.body.email,
