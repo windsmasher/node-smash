@@ -1,8 +1,13 @@
 version: "3.8"
 services:
+  server:
+    image: ./Dockerfile
+    container_name: server_con
+    ports:
+      - "8000:8000"
   db:
     image: mongo
-    container_name: node_smashing_db
+    container_name: mongo_con
     volumes:
       - mongodata:/data/db
     ports:
